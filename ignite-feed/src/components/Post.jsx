@@ -1,21 +1,26 @@
+/* eslint-disable react/prop-types */
+import { format } from 'date-fns';
+
 import { Avatar } from './Avatar';
 import { Comment } from './Comment';
 import styles from './Post.module.css';
 
-export function Post() {
+export function Post({ author, publishedAt }) {
+  const publishedDateFormat = format(publishedAt, "d 'de' LLLL 'às' HH:mm'h'");
+
   return (
     <article className={styles.post}>
       <header>
         <div className={styles.author}>
-          <Avatar src="https://github.com/pdro-lucas.png" />
+          <Avatar src={author.avatarUrl} />
           <div className={styles.authorInfo}>
-            <strong>Pedro Lucas</strong>
-            <span>Web Developer</span>
+            <strong>{author.name}</strong>
+            <span>{author.role}</span>
           </div>
         </div>
 
         <time title="25 de Setembro às 00:00h" dateTime="2022-09-25 00:00:00">
-          Publicado há 1h
+          {publishedDateFormat}
         </time>
       </header>
 
