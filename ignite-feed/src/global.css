@@ -10,6 +10,8 @@
 
   --green-500: #00875f;
   --green-400: #12a77a;
+
+  --danger: #f75a68;
 }
 
 :focus {
