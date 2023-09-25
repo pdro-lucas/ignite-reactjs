@@ -66,11 +66,13 @@
   background: transparent;
   border: 1px solid var(--green-500);
 
-  transition: all 0.2s linear;
+  transition: color, background 0.09s linear;
+
+  gap: 0.5rem;
 }
 
 .sidebar footer a:hover {
-  border: 1px solid var(--green-400);
+  background: var(--green-400);
 
-  color: var(--green-400);
+  color: var(--white);
 }
