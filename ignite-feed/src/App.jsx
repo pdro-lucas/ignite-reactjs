@@ -1,8 +1,9 @@
 import { Header } from './components/Header';
-import './global.css';
+import { Sidebar } from './components/Sidebar';
+import { Post } from './components/Post';
 
 import styles from './App.module.css';
-import { Sidebar } from './components/Sidebar';
+import './global.css';
 
 function App() {
   return (
@@ -11,8 +12,7 @@ function App() {
       <div className={styles.wrapper}>
         <Sidebar />
         <main>
-          <p>Hello</p>
-          <p>Hello</p>
+          <Post />
         </main>
       </div>
     </>
