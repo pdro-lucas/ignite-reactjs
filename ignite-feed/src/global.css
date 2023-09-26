@@ -14,7 +14,7 @@
   --danger: #f75a68;
 }
 
-:focus {
+:focus-visible {
   outline: transparent;
   box-shadow: 0 0 0 2px var(--green-500);
 }

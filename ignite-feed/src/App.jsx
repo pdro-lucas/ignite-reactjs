@@ -67,6 +67,10 @@ const posts = [
         content:
           'Estou explorando dados para identificar tendências de mercado. A inteligência artificial está desempenhando um papel crucial nessa análise.',
       },
+      {
+        type: 'link',
+        content: 'jane.design/doctorcare',
+      },
     ],
     publishedAt: new Date('2023-09-25 20:00:00'),
   },
