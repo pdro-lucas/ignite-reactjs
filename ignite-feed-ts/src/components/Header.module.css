@@ -1,0 +1,15 @@
+.header {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 0.99944rem;
+
+  padding: 1.25rem 0;
+  height: 80px;
+
+  background: var(--gray-800);
+}
+
+.header img {
+  height: 2rem;
+}
