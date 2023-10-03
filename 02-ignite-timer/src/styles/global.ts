@@ -9,6 +9,9 @@ export const GlobalStyle = createGlobalStyle`
 
   :focus {
     outline: 0;
+  }
+
+  :focus-visible{
     box-shadow: 0 0 0 2px ${(props) => props.theme['green-500']};
   }
 
