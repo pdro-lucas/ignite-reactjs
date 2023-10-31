@@ -63,6 +63,22 @@
       "category": "other",
       "price": 800,
       "createdAt": "2019-03-01T00:00:00.000Z"
+    },
+    {
+      "description": "Açai",
+      "price": 23,
+      "category": "food",
+      "type": "outcome",
+      "createdAt": "2023-10-31T20:33:14.238Z",
+      "id": 9
+    },
+    {
+      "description": "Blusa da Nike",
+      "price": 110,
+      "category": "roupa",
+      "type": "outcome",
+      "createdAt": "2023-10-31T20:58:02.061Z",
+      "id": 10
     }
   ]
 }
