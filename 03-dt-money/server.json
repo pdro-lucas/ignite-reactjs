@@ -1,0 +1,68 @@
+{
+  "transactions": [
+    {
+      "id": 1,
+      "description": "Bought a new laptop for work.",
+      "type": "outcome",
+      "category": "electronics",
+      "price": 1000,
+      "createdAt": "2019-01-01T00:00:00.000Z"
+    },
+    {
+      "id": 2,
+      "description": "Sold old TV.",
+      "type": "income",
+      "category": "electronics",
+      "price": 500,
+      "createdAt": "2019-01-07T00:00:00.000Z"
+    },
+    {
+      "id": 3,
+      "description": "Monthly salary.",
+      "type": "income",
+      "category": "salary",
+      "price": 3000,
+      "createdAt": "2019-01-15T00:00:00.000Z"
+    },
+    {
+      "id": 4,
+      "description": "Groceries.",
+      "type": "outcome",
+      "category": "food",
+      "price": 100,
+      "createdAt": "2019-01-17T00:00:00.000Z"
+    },
+    {
+      "id": 5,
+      "description": "Bought a new smartphone.",
+      "type": "outcome",
+      "category": "electronics",
+      "price": 500,
+      "createdAt": "2019-02-01T00:00:00.000Z"
+    },
+    {
+      "id": 6,
+      "description": "Monthly salary.",
+      "type": "income",
+      "category": "salary",
+      "price": 3000,
+      "createdAt": "2019-02-15T00:00:00.000Z"
+    },
+    {
+      "id": 7,
+      "description": "Groceries.",
+      "type": "outcome",
+      "category": "food",
+      "price": 100,
+      "createdAt": "2019-02-17T00:00:00.000Z"
+    },
+    {
+      "id": 8,
+      "description": "Sold a bike.",
+      "type": "income",
+      "category": "other",
+      "price": 800,
+      "createdAt": "2019-03-01T00:00:00.000Z"
+    }
+  ]
+}
