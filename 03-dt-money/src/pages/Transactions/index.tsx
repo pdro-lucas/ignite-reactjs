@@ -1,13 +1,16 @@
 import { Header } from '@/components/Header';
 import { Summary } from '@/components/Summary';
 import { TransactionsContext } from '@/contexts/TransactionsContext';
-import { useContext } from 'react';
+import { useContextSelector } from 'use-context-selector';
 import { SearchForm } from './components/SearchForm';
 import * as S from './styles';
 import { DateFormatter, formatCurrency } from '@/utils/formatter';
 
 export function Transactions() {
-  const { transactions } = useContext(TransactionsContext);
+  const transactions = useContextSelector(
+    TransactionsContext,
+    (ctx) => ctx.transactions,
+  );
 
   return (
     <div>
