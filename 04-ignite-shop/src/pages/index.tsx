@@ -3,6 +3,7 @@ import 'keen-slider/keen-slider.min.css';
 import { useKeenSlider } from 'keen-slider/react';
 import { GetStaticProps } from 'next';
 import Image from 'next/image';
+import Link from 'next/link';
 import { useState } from 'react';
 import Stripe from 'stripe';
 
@@ -35,7 +36,7 @@ export default function Home({ products }: HomeProps) {
     >
       {products.map((product) => {
         return (
-          <a
+          <Link
             key={product.id}
             href={`/product/${product.id}`}
             className="relative flex items-center justify-center p-1 overflow-hidden rounded-lg cursor-pointer keen-slider__slide bg-product-gradient group"
@@ -54,7 +55,7 @@ export default function Home({ products }: HomeProps) {
                 {product.price}
               </span>
             </footer>
-          </a>
+          </Link>
         );
       })}
     </div>
