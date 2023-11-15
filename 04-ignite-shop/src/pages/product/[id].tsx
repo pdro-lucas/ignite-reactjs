@@ -71,11 +71,16 @@ export default function Product({ product }: ProductProps) {
             onClick={handleBuyProduct}
             disabled={isCreatingCheckoutSession}
           >
-            <span>Comprar agora</span>
+            <span className="flex-1 ml-6">Comprar agora</span>
 
-            {isCreatingCheckoutSession && (
-              <Loader2 size={24} className="w-6 h-6 mr-2 animate-spin" />
-            )}
+            <Loader2
+              size={24}
+              className={`${
+                isCreatingCheckoutSession === false
+                  ? 'opacity-0'
+                  : 'opacity-100'
+              } animate-spin`}
+            />
           </button>
         </div>
       </div>
