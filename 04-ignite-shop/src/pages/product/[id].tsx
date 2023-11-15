@@ -6,6 +6,7 @@ import Image from 'next/image';
 import { useRouter } from 'next/router';
 import { useState } from 'react';
 import Stripe from 'stripe';
+import Head from 'next/head';
 
 interface ProductProps {
   product: {
@@ -44,35 +45,41 @@ export default function Product({ product }: ProductProps) {
   }
 
   return (
-    <div className="grid grid-cols-2 max-w-[1180px] mx-auto items-stretch gap-16">
-      <div className="flex items-center justify-center w-full max-w-xl p-2 rounded-lg bg-product-gradient h-[656px]">
-        <Image
-          className="object-cover"
-          src={product.imageUrl}
-          alt="Picture of the author"
-          width={520}
-          height={520}
-        />
-      </div>
-      <div className="flex flex-col">
-        <h1 className="text-2xl font-bold text-zinc-300">{product.name}</h1>
-        <span className="block mt-4 text-2xl text-emerald-500">
-          {product.price}
-        </span>
-        <p className="mt-10 text-lg/7 text-zinc-400">{product.description}</p>
-        <button
-          className="flex items-center justify-center gap-4 p-5 mt-auto text-lg font-bold text-white transition-colors border-none rounded-lg cursor-pointer bg-emerald-500 hover:bg-emerald-600 disabled:bg-emerald-500/50 disabled:cursor-not-allowed"
-          onClick={handleBuyProduct}
-          disabled={isCreatingCheckoutSession}
-        >
-          <span>Comprar agora</span>
+    <>
+      <Head>
+        <title>{product.name} | IgShop</title>
+      </Head>
 
-          {isCreatingCheckoutSession && (
-            <Loader2 size={24} className="w-6 h-6 mr-2 animate-spin" />
-          )}
-        </button>
+      <div className="grid grid-cols-2 max-w-[1180px] mx-auto items-stretch gap-16">
+        <div className="flex items-center justify-center w-full max-w-xl p-2 rounded-lg bg-product-gradient h-[656px]">
+          <Image
+            className="object-cover"
+            src={product.imageUrl}
+            alt="Picture of the author"
+            width={520}
+            height={520}
+          />
+        </div>
+        <div className="flex flex-col">
+          <h1 className="text-2xl font-bold text-zinc-300">{product.name}</h1>
+          <span className="block mt-4 text-2xl text-emerald-500">
+            {product.price}
+          </span>
+          <p className="mt-10 text-lg/7 text-zinc-400">{product.description}</p>
+          <button
+            className="flex items-center justify-center gap-4 p-5 mt-auto text-lg font-bold text-white transition-colors border-none rounded-lg cursor-pointer bg-emerald-500 hover:bg-emerald-600 disabled:bg-emerald-500/50 disabled:cursor-not-allowed"
+            onClick={handleBuyProduct}
+            disabled={isCreatingCheckoutSession}
+          >
+            <span>Comprar agora</span>
+
+            {isCreatingCheckoutSession && (
+              <Loader2 size={24} className="w-6 h-6 mr-2 animate-spin" />
+            )}
+          </button>
+        </div>
       </div>
-    </div>
+    </>
   );
 }
 

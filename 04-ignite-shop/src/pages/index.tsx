@@ -2,6 +2,7 @@ import { stripe } from '@/lib/stripe';
 import 'keen-slider/keen-slider.min.css';
 import { useKeenSlider } from 'keen-slider/react';
 import { GetStaticProps } from 'next';
+import Head from 'next/head';
 import Image from 'next/image';
 import Link from 'next/link';
 import { useState } from 'react';
@@ -28,37 +29,42 @@ export default function Home({ products }: HomeProps) {
   });
 
   return (
-    <div
-      className={`flex max-w-[calc(100vw-((100vw-1180px)/2))] ml-auto min-h-[656px] keen-slider ${
-        isDragging ? 'cursor-grabbing' : 'cursor-grab'
-      }`}
-      ref={sliderRef}
-    >
-      {products.map((product) => {
-        return (
-          <Link
-            key={product.id}
-            href={`/product/${product.id}`}
-            className="relative flex items-center justify-center p-1 overflow-hidden rounded-lg cursor-pointer keen-slider__slide bg-product-gradient group"
-          >
-            <Image
-              src={product.imageUrl}
-              alt=""
-              width={520}
-              height={480}
-              className="object-cover"
-            />
+    <>
+      <Head>
+        <title>Home | IgShop</title>
+      </Head>
+      <div
+        className={`flex max-w-[calc(100vw-((100vw-1180px)/2))] ml-auto min-h-[656px] keen-slider ${
+          isDragging ? 'cursor-grabbing' : 'cursor-grab'
+        }`}
+        ref={sliderRef}
+      >
+        {products.map((product) => {
+          return (
+            <Link
+              key={product.id}
+              href={`/product/${product.id}`}
+              className="relative flex items-center justify-center p-1 overflow-hidden rounded-lg cursor-pointer keen-slider__slide bg-product-gradient group"
+            >
+              <Image
+                src={product.imageUrl}
+                alt=""
+                width={520}
+                height={480}
+                className="object-cover"
+              />
 
-            <footer className="absolute flex items-center justify-between p-8 transform translate-y-[110%] rounded-md bottom-1 left-1 right-1 bg-black/60 opacity-0 transition-all ease-in-out duration-200 group-hover:translate-y-0 group-hover:opacity-100">
-              <strong className="text-xl">{product.name}</strong>
-              <span className="text-2xl font-bold text-emerald-500">
-                {product.price}
-              </span>
-            </footer>
-          </Link>
-        );
-      })}
-    </div>
+              <footer className="absolute flex items-center justify-between p-8 transform translate-y-[110%] rounded-md bottom-1 left-1 right-1 bg-black/60 opacity-0 transition-all ease-in-out duration-200 group-hover:translate-y-0 group-hover:opacity-100">
+                <strong className="text-xl">{product.name}</strong>
+                <span className="text-2xl font-bold text-emerald-500">
+                  {product.price}
+                </span>
+              </footer>
+            </Link>
+          );
+        })}
+      </div>
+    </>
   );
 }
 
