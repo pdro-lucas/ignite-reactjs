@@ -11,7 +11,7 @@ interface HomeProps {
     id: string;
     name: string;
     imageUrl: string;
-    price: number;
+    price: string;
   }[];
 }
 
@@ -37,7 +37,7 @@ export default function Home({ products }: HomeProps) {
         return (
           <a
             key={product.id}
-            href="#"
+            href={`/product/${product.id}`}
             className="relative flex items-center justify-center p-1 overflow-hidden rounded-lg cursor-pointer keen-slider__slide bg-product-gradient group"
           >
             <Image
