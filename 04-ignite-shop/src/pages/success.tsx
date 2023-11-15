@@ -18,6 +18,7 @@ export default function Success({ customerName, product }: SuccessProps) {
     <>
       <Head>
         <title>Compra efetuada | IgShop</title>
+        <meta name="robots" content="noindex" />
       </Head>
       <div className="max-w-[1180px] mx-auto flex flex-col items-center justify-center h-[656px]">
         <h1 className="text-4xl font-bold text-zinc-300">Compra efetuada</h1>
