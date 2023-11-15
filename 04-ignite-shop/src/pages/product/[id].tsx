@@ -1,7 +1,10 @@
 import { stripe } from '@/lib/stripe';
+import axios from 'axios';
+import { Loader2 } from 'lucide-react';
 import { GetStaticPaths, GetStaticProps } from 'next';
 import Image from 'next/image';
 import { useRouter } from 'next/router';
+import { useState } from 'react';
 import Stripe from 'stripe';
 
 interface ProductProps {
@@ -16,14 +19,28 @@ interface ProductProps {
 }
 
 export default function Product({ product }: ProductProps) {
+  const [isCreatingCheckoutSession, setIsCreatingCheckoutSession] =
+    useState(false);
   const { isFallback } = useRouter();
 
   if (isFallback) {
     return <p>Carregando...</p>;
   }
 
-  function handleBuyProduct() {
-    console.log(product.defaultPriceId);
+  async function handleBuyProduct() {
+    try {
+      setIsCreatingCheckoutSession(true);
+      const response = await axios.post('/api/checkout', {
+        priceId: product.defaultPriceId,
+      });
+
+      const { checkoutUrl } = response.data;
+
+      window.location.href = checkoutUrl;
+    } catch (error) {
+      setIsCreatingCheckoutSession(false);
+      console.log(error);
+    }
   }
 
   return (
@@ -44,10 +61,15 @@ export default function Product({ product }: ProductProps) {
         </span>
         <p className="mt-10 text-lg/7 text-zinc-400">{product.description}</p>
         <button
-          className="p-5 mt-auto text-lg font-bold text-white transition-colors border-none rounded-lg cursor-pointer bg-emerald-500 hover:bg-emerald-600"
+          className="flex items-center justify-center gap-4 p-5 mt-auto text-lg font-bold text-white transition-colors border-none rounded-lg cursor-pointer bg-emerald-500 hover:bg-emerald-600 disabled:bg-emerald-500/50 disabled:cursor-not-allowed"
           onClick={handleBuyProduct}
+          disabled={isCreatingCheckoutSession}
         >
-          Comprar agora
+          <span>Comprar agora</span>
+
+          {isCreatingCheckoutSession && (
+            <Loader2 size={24} className="w-6 h-6 mr-2 animate-spin" />
+          )}
         </button>
       </div>
     </div>
