@@ -50,7 +50,7 @@ export default function Home({ products }: HomeProps) {
 
             <footer className="absolute flex items-center justify-between p-8 transform translate-y-[110%] rounded-md bottom-1 left-1 right-1 bg-black/60 opacity-0 transition-all ease-in-out duration-200 group-hover:translate-y-0 group-hover:opacity-100">
               <strong className="text-xl">{product.name}</strong>
-              <span className="text-2xl font-bold text-green-500">
+              <span className="text-2xl font-bold text-emerald-500">
                 {product.price}
               </span>
             </footer>
