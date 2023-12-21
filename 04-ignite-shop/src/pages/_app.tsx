@@ -12,13 +12,13 @@ const roboto = Roboto({
 
 export default function App({ Component, pageProps }: AppProps) {
   return (
-    <div className="flex flex-col items-start justify-center min-h-screen">
-      <header className="py-8 w-full max-w-[1180px] mx-auto">
+    <div className="flex flex-col items-start justify-start gap-20 min-h-screen">
+      <header className="py-8 max-w-[calc(100vw-((100vw-1180px)/2))] w-full mx-auto">
         <Link href="/">
           <Image src={Logo} alt="" width={130} height={52} />
         </Link>
       </header>
-      <main className={`${roboto.className} w-full`}>
+      <main className={`${roboto.className} w-full overflow-hidden`}>
         <Component {...pageProps} />
       </main>
     </div>
