@@ -10,8 +10,13 @@ interface SliderProps {
 }
 
 export function Slider({ products }: SliderProps) {
+  const [currentSlide, setCurrentSlide] = useState(0)
   const [isDragging, setIsDragging] = useState(false)
   const [sliderRef, instanceRef] = useKeenSlider({
+    initial: 0,
+    slideChanged(s) {
+      setCurrentSlide(s.track.details.rel)
+    },
     slides: {
       perView: 3,
       spacing: 48,
@@ -24,6 +29,7 @@ export function Slider({ products }: SliderProps) {
     <>
       <SliderArrow
         direction="left"
+        disabled={currentSlide === 0}
         onClick={(e) => {
           e.stopPropagation()
           instanceRef.current?.prev()
@@ -32,6 +38,10 @@ export function Slider({ products }: SliderProps) {
 
       <SliderArrow
         direction="right"
+        disabled={
+          currentSlide ===
+          (instanceRef.current?.track.details.slides.length ?? 0) - 3
+        }
         onClick={(e) => {
           e.stopPropagation()
           instanceRef.current?.next()
