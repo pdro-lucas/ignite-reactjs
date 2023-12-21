@@ -13,7 +13,9 @@ const roboto = Roboto({
 
 export default function App({ Component, pageProps }: AppProps) {
   return (
-    <div className="flex flex-col items-start justify-start min-h-screen gap-20">
+    <div
+      className={`${roboto.className} flex flex-col items-start justify-start min-h-screen gap-20`}
+    >
       <header className="py-8 flex justify-between items-center max-w-[calc(100vw-((100vw-1180px)/2))] w-full mx-auto">
         <Link href="/">
           <Image
@@ -26,7 +28,7 @@ export default function App({ Component, pageProps }: AppProps) {
 
         <ShoppingCart />
       </header>
-      <main className={`${roboto.className} w-full overflow-hidden`}>
+      <main className="w-full overflow-hidden">
         <Component {...pageProps} />
       </main>
     </div>
