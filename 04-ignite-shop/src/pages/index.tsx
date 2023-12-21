@@ -1,10 +1,8 @@
 import { Slider } from '@/components/ProductsSlider'
 import { stripe } from '@/lib/stripe'
 import 'keen-slider/keen-slider.min.css'
-import { useKeenSlider } from 'keen-slider/react'
 import { GetStaticProps } from 'next'
 import Head from 'next/head'
-import { useState } from 'react'
 import Stripe from 'stripe'
 
 export type Product = {
@@ -18,16 +16,6 @@ export interface ProductProps {
 }
 
 export default function Home({ products }: ProductProps) {
-  const [isDragging, setIsDragging] = useState(false)
-  const [sliderRef, instanceRef] = useKeenSlider({
-    slides: {
-      perView: 3,
-      spacing: 48,
-    },
-    dragStarted: () => setIsDragging(true),
-    dragEnded: () => setIsDragging(false),
-  })
-
   return (
     <>
       <Head>
