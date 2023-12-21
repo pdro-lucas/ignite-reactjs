@@ -2,10 +2,12 @@ import { ShoppingBag } from 'lucide-react'
 import { Badge } from './Badge'
 
 export function ShoppingCart() {
+  const totalItemsInCart = 1
   return (
-    <div className="relative p-3 rounded-md bg-zinc-900 text-zinc-400">
+    <div className="relative p-3 transition-colors rounded-md cursor-pointer bg-zinc-900 text-zinc-400 hover:bg-zinc-800">
       <ShoppingBag size={24} />
-      <Badge totalItemsInCart={3} />
+
+      {totalItemsInCart > 0 && <Badge count={totalItemsInCart} />}
     </div>
   )
 }
