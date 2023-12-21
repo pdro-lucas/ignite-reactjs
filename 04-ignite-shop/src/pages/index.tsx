@@ -1,5 +1,4 @@
 import { Slider } from '@/components/ProductsSlider'
-import SliderArrow from '@/components/ProductsSlider/SliderArrow'
 import { stripe } from '@/lib/stripe'
 import 'keen-slider/keen-slider.min.css'
 import { useKeenSlider } from 'keen-slider/react'
@@ -8,13 +7,14 @@ import Head from 'next/head'
 import { useState } from 'react'
 import Stripe from 'stripe'
 
+export type Product = {
+  id: string
+  name: string
+  imageUrl: string
+  price: string
+}
 export interface ProductProps {
-  products: {
-    id: string
-    name: string
-    imageUrl: string
-    price: string
-  }[]
+  products: Product[]
 }
 
 export default function Home({ products }: ProductProps) {
@@ -33,22 +33,6 @@ export default function Home({ products }: ProductProps) {
       <Head>
         <title>Home | IgShop</title>
       </Head>
-
-      <SliderArrow
-        direction="left"
-        onClick={(e) => {
-          e.stopPropagation()
-          instanceRef.current?.prev()
-        }}
-      />
-
-      <SliderArrow
-        direction="right"
-        onClick={(e) => {
-          e.stopPropagation()
-          instanceRef.current?.next()
-        }}
-      />
 
       <Slider products={products} />
     </>
