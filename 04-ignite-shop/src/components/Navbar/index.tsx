@@ -22,8 +22,6 @@ export function Navbar() {
           <ShoppingCart />
         </Dialog.Trigger>
         <Dialog.Portal>
-          <Dialog.Overlay className="fixed inset-0 z-20" />
-
           <Dialog.Content className="data-[state=open]:animate-slideIn data-[state=closed]:animate-slideOut fixed top-0 right-0 z-30 h-[100vh] p-6 w-full max-w-[450px] bg-zinc-900 shadow-[-4px_0px_30px_0px_rgba(0,0,0,0.80)]">
             <Dialog.Close className="w-full text-right">
               <button className="text-zinc-400">
@@ -65,7 +63,7 @@ export function Navbar() {
                   <span>Valor total</span>
                   <span>R$ 270,00</span>
                 </div>
-                <button className="w-full p-4 mt-8 transition-colors rounded-md bg-emerald-500 hover:bg-emerald-600">
+                <button className="w-full p-4 mt-12 transition-colors rounded-md bg-emerald-500 hover:bg-emerald-600">
                   Finalizar compra
                 </button>
               </div>
