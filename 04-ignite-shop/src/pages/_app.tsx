@@ -10,13 +10,20 @@ const roboto = Roboto({
 
 export default function App({ Component, pageProps }: AppProps) {
   return (
-    <div
-      className={`${roboto.className} flex flex-col items-start justify-start min-h-screen gap-20`}
-    >
+    <>
+      <style
+        jsx
+        global
+      >{`
+        html {
+          font-family: ${roboto.style.fontFamily};
+        }
+      `}</style>
+
       <Navbar />
-      <main className="w-full overflow-hidden">
+      <main className="w-full h-[100vh - calc(100vw-((100vw-1180px)/2))] mt-8 overflow-hidden">
         <Component {...pageProps} />
       </main>
-    </div>
+    </>
   )
 }
