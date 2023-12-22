@@ -1,5 +1,6 @@
 import { Product } from '@/pages'
 import { useKeenSlider } from 'keen-slider/react'
+import { ShoppingBag } from 'lucide-react'
 import Image from 'next/image'
 import Link from 'next/link'
 import { useState } from 'react'
@@ -70,10 +71,16 @@ export function Slider({ products }: SliderProps) {
               />
 
               <footer className="absolute flex items-center justify-between p-8 transform translate-y-[110%] rounded-md bottom-1 left-1 right-1 bg-black/60 opacity-0 transition-all ease-in-out duration-200 group-hover:translate-y-0 group-hover:opacity-100">
-                <strong className="text-xl">{product.name}</strong>
-                <span className="text-2xl font-bold text-emerald-500">
-                  {product.price}
-                </span>
+                <div className="space-y-2">
+                  <p className="text-xl font-bold">{product.name}</p>
+                  <span className="block text-2xl font-bold text-emerald-500">
+                    {product.price}
+                  </span>
+                </div>
+
+                <button className="p-4 transition-colors rounded-md bg-emerald-600 hover:bg-emerald-700">
+                  <ShoppingBag size={24} />
+                </button>
               </footer>
             </Link>
           )
