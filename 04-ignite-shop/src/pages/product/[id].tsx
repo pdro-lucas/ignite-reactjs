@@ -1,53 +1,53 @@
-import { stripe } from '@/lib/stripe';
-import axios from 'axios';
-import { Loader2 } from 'lucide-react';
-import { GetStaticPaths, GetStaticProps } from 'next';
-import Image from 'next/image';
-import { useRouter } from 'next/router';
-import { useState } from 'react';
-import Stripe from 'stripe';
-import Head from 'next/head';
+import { stripe } from '@/lib/stripe'
+import axios from 'axios'
+import { Loader2 } from 'lucide-react'
+import { GetStaticPaths, GetStaticProps } from 'next'
+import Head from 'next/head'
+import Image from 'next/image'
+import { useRouter } from 'next/router'
+import { useState } from 'react'
+import Stripe from 'stripe'
 
 interface ProductProps {
   product: {
-    id: string;
-    name: string;
-    description: string;
-    imageUrl: string;
-    price: string;
-    defaultPriceId: string;
-  };
+    id: string
+    name: string
+    description: string
+    imageUrl: string
+    price: string
+    defaultPriceId: string
+  }
 }
 
 export default function Product({ product }: ProductProps) {
   const [isCreatingCheckoutSession, setIsCreatingCheckoutSession] =
-    useState(false);
-  const { isFallback } = useRouter();
+    useState(false)
+  const { isFallback } = useRouter()
 
   if (isFallback) {
-    return <p>Carregando...</p>;
+    return <p>Carregando...</p>
   }
 
   async function handleBuyProduct() {
     try {
-      setIsCreatingCheckoutSession(true);
+      setIsCreatingCheckoutSession(true)
       const response = await axios.post('/api/checkout', {
         priceId: product.defaultPriceId,
-      });
+      })
 
-      const { checkoutUrl } = response.data;
+      const { checkoutUrl } = response.data
 
-      window.location.href = checkoutUrl;
+      window.location.href = checkoutUrl
     } catch (error) {
-      setIsCreatingCheckoutSession(false);
-      console.log(error);
+      setIsCreatingCheckoutSession(false)
+      console.log(error)
     }
   }
 
   return (
     <>
       <Head>
-        <title>{product.name} | IgShop</title>
+        <title>{product.name}</title>
       </Head>
 
       <div className="grid grid-cols-2 max-w-[1180px] mx-auto items-stretch gap-16">
@@ -85,7 +85,7 @@ export default function Product({ product }: ProductProps) {
         </div>
       </div>
     </>
-  );
+  )
 }
 
 export const getStaticPaths: GetStaticPaths = async () => {
@@ -96,8 +96,8 @@ export const getStaticPaths: GetStaticPaths = async () => {
       },
     ],
     fallback: true,
-  };
-};
+  }
+}
 
 export const getStaticProps: GetStaticProps<any, { id: string }> = async ({
   params,
@@ -105,16 +105,16 @@ export const getStaticProps: GetStaticProps<any, { id: string }> = async ({
   if (!params || !params.id) {
     return {
       notFound: true,
-    };
+    }
   }
 
-  const productId = params.id;
+  const productId = params.id
 
   const product = await stripe.products.retrieve(productId, {
     expand: ['default_price'],
-  });
+  })
 
-  const price = product.default_price as Stripe.Price;
+  const price = product.default_price as Stripe.Price
 
   return {
     props: {
@@ -131,5 +131,5 @@ export const getStaticProps: GetStaticProps<any, { id: string }> = async ({
       },
     },
     revalidate: 60 * 60 * 1, // 1 hour
-  };
-};
+  }
+}
