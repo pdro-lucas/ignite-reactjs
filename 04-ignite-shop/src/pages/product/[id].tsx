@@ -50,7 +50,7 @@ export default function Product({ product }: ProductProps) {
         <title>{product.name}</title>
       </Head>
 
-      <div className="grid grid-cols-2 max-w-[1180px] mx-auto items-stretch gap-16">
+      <div className="grid grid-cols-2 max-w-[calc(100vw-((100vw-1180px)/2))] mx-auto items-stretch gap-16">
         <div className="flex items-center justify-center w-full max-w-xl p-2 rounded-lg bg-product-gradient h-[656px]">
           <Image
             className="object-cover"
