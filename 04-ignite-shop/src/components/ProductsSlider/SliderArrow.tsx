@@ -19,8 +19,6 @@ export function SliderArrow({
     isLeft ? 'bg-slider-arrow-left-bg' : 'bg-slider-arrow-right-bg'
   } cursor-pointer data-[disabled=true]:text-zinc-400 data-[disabled=true]:cursor-not-allowed data-[disabled=true]:opacity-50 data-[disabled=true]:hover:opacity-1`
 
-  console.log(disabled)
-
   return (
     <div
       className={className}
