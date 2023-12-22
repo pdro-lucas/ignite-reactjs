@@ -1,3 +1,4 @@
+import scrollbar from 'tailwind-scrollbar'
 import type { Config } from 'tailwindcss'
 
 const config: Config = {
@@ -18,8 +19,23 @@ const config: Config = {
       fontFamily: {
         sans: ['var(--font-roboto)'],
       },
+      keyframes: {
+        slideIn: {
+          '0%': { transform: 'translateX(100%)' },
+          '100%': { transform: 'translateX(0)' },
+        },
+
+        slideOut: {
+          '0%': { transform: 'translateX(0)' },
+          '100%': { transform: 'translateX(100%)' },
+        },
+      },
+      animation: {
+        slideIn: 'slideIn 0.2s cubic-bezier(0.54, 0.01, 0.68, 0.94)',
+        slideOut: 'slideOut 0.2s cubic-bezier(0.54, 0.01, 0.68, 0.94)',
+      },
     },
   },
-  plugins: [],
+  plugins: [scrollbar({ nocompatible: true })],
 }
 export default config
