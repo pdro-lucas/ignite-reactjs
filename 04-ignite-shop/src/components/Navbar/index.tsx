@@ -1,15 +1,25 @@
-import Logo from '@/assets/logo.svg'
-import * as Dialog from '@radix-ui/react-dialog'
 import { ShoppingBag, X } from 'lucide-react'
 import Image from 'next/image'
 import Link from 'next/link'
+
+import Logo from '@/assets/logo.svg'
+import * as Dialog from '@radix-ui/react-dialog'
+
 import { Badge } from '../Badge'
 
-export function Navbar() {
+interface NavbarProps {
+  isAddToCartButtonVisible?: boolean
+}
+
+export function Navbar({ isAddToCartButtonVisible = true }: NavbarProps) {
   const totalItemsInCart = 1
 
   return (
-    <header className="py-8 flex justify-between items-center max-w-[calc(100vw-((100vw-1180px)/2))] w-full mx-auto z-50">
+    <header
+      className={`py-8 flex items-center max-w-[calc(100vw-((100vw-1180px)/2))] w-full mx-auto z-50 ${
+        isAddToCartButtonVisible ? 'justify-between' : 'justify-center'
+      }`}
+    >
       <Link href="/">
         <Image
           src={Logo}
@@ -20,13 +30,15 @@ export function Navbar() {
       </Link>
 
       <Dialog.Root>
-        <Dialog.Trigger asChild>
-          <button className="relative p-3 transition-colors rounded-md cursor-pointer bg-zinc-900 text-zinc-400 hover:bg-zinc-800">
-            <ShoppingBag size={24} />
+        {isAddToCartButtonVisible && (
+          <Dialog.Trigger asChild>
+            <button className="relative p-3 transition-colors rounded-md cursor-pointer bg-zinc-900 text-zinc-400 hover:bg-zinc-800">
+              <ShoppingBag size={24} />
 
-            {totalItemsInCart > 0 && <Badge count={totalItemsInCart} />}
-          </button>
-        </Dialog.Trigger>
+              {totalItemsInCart > 0 && <Badge count={totalItemsInCart} />}
+            </button>
+          </Dialog.Trigger>
+        )}
         <Dialog.Portal>
           <Dialog.Content className="data-[state=open]:animate-slideIn data-[state=closed]:animate-slideOut fixed top-0 right-0 z-30 h-[100vh] max-h-dvh p-6 w-full max-w-[450px] bg-zinc-900 shadow-[-4px_0px_30px_0px_rgba(0,0,0,0.80)]">
             <Dialog.Close className=" text-zinc-400 text-right">
