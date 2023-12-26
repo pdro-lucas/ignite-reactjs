@@ -23,25 +23,13 @@ export function Navbar() {
         </Dialog.Trigger>
         <Dialog.Portal>
           <Dialog.Content className="data-[state=open]:animate-slideIn data-[state=closed]:animate-slideOut fixed top-0 right-0 z-30 h-[100vh] max-h-dvh p-6 w-full max-w-[450px] bg-zinc-900 shadow-[-4px_0px_30px_0px_rgba(0,0,0,0.80)]">
-            <Dialog.Close className="w-full text-right">
-              <button className="text-zinc-400">
-                <X size={24} />
-              </button>
+            <Dialog.Close className=" text-zinc-400 text-right">
+              <X size={24} />
             </Dialog.Close>
 
             <Dialog.Title className="text-xl">Sacola de compras</Dialog.Title>
-            <div className="flex flex-col justify-between h-full mt-8">
+            <div className="flex flex-col justify-between h-[90%] mt-8">
               <div className="space-y-6 h-[580px] scrollbar-thumb-zinc-800 scrollbar-thumb-rounded-full scrollbar-thin overflow-y-auto">
-                <div className="flex gap-5">
-                  <div className="w-24 h-24 rounded-md bg-product-gradient"></div>
-                  <div className="space-y-2">
-                    <p className="text-lg text-zinc-200">
-                      Camiseta Beyond the Limits
-                    </p>
-                    <p className="text-lg font-bold">R$ 79,90</p>
-                    <button className="block text-emerald-600">Remover</button>
-                  </div>
-                </div>
                 <div className="flex gap-5">
                   <div className="w-24 h-24 rounded-md bg-product-gradient"></div>
                   <div className="space-y-2">
@@ -54,7 +42,7 @@ export function Navbar() {
                 </div>
               </div>
 
-              <div className=' flex-1'>
+              <div className="">
                 <div className="flex justify-between text-zinc-400">
                   <span>Quantidade</span>
                   <span>3 Items</span>
