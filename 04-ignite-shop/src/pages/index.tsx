@@ -1,9 +1,14 @@
-import { Slider } from '@/components/ProductsSlider'
-import { stripe } from '@/lib/stripe'
 import 'keen-slider/keen-slider.min.css'
+
 import { GetStaticProps } from 'next'
 import Head from 'next/head'
 import Stripe from 'stripe'
+
+import { Slider } from '@/components/ProductsSlider'
+import { stripe } from '@/lib/stripe'
+
+import { NextPageWithLayout } from './_app'
+import Layout from './layout'
 
 export type Product = {
   id: string
@@ -15,7 +20,7 @@ export interface ProductProps {
   products: Product[]
 }
 
-export default function Home({ products }: ProductProps) {
+const Page: NextPageWithLayout<ProductProps> = ({ products }) => {
   return (
     <>
       <Head>
@@ -26,6 +31,12 @@ export default function Home({ products }: ProductProps) {
     </>
   )
 }
+
+Page.getLayout = function getLayout(page) {
+  return <Layout>{page}</Layout>
+}
+
+export default Page
 
 export const getStaticProps: GetStaticProps = async () => {
   const response = await stripe.products.list({

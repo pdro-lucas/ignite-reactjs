@@ -7,6 +7,8 @@ import Image from 'next/image'
 import { useRouter } from 'next/router'
 import { useState } from 'react'
 import Stripe from 'stripe'
+import { NextPageWithLayout } from '../_app'
+import Layout from '../layout'
 
 interface ProductProps {
   product: {
@@ -19,7 +21,7 @@ interface ProductProps {
   }
 }
 
-export default function Product({ product }: ProductProps) {
+const Page: NextPageWithLayout<ProductProps> = ({ product }) => {
   const [isCreatingCheckoutSession, setIsCreatingCheckoutSession] =
     useState(false)
   const { isFallback } = useRouter()
@@ -87,6 +89,12 @@ export default function Product({ product }: ProductProps) {
     </>
   )
 }
+
+Page.getLayout = function getLayout(page) {
+  return <Layout>{page}</Layout>
+}
+
+export default Page
 
 export const getStaticPaths: GetStaticPaths = async () => {
   return {
