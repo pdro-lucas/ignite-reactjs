@@ -9,9 +9,7 @@ Ignite Feed is a simulated social media blogging platform designed for education
 
 _Screenshot of the Ignite Feed Interface_
 
-   <video width="1000" height="540" controls>
-      <source src="./public/preview/preview.mp4" type="video/mp4">
-   </video>
+[<img src="https://github.com/pdro-lucas/ignite-reactjs/blob/feature/pizza-shop-web/ignite-feed-ts/public/preview/preview.mp4" width="50%">](https://github.com/pdro-lucas/ignite-reactjs/blob/feature/pizza-shop-web/ignite-feed-ts/public/preview/preview.mp4 'Preview')
 
 _Video of the Ignite Feed Interface_
 
