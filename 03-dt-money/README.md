@@ -4,6 +4,10 @@
 
 DT Money is a personal finance application that enables users to manage their financial transactions with ease. It allows users to record their income and expenses by adding transaction names, amounts, categories, and prices. The user interface is designed to be intuitive, featuring three main cards on the dashboard that display total income, total expenses, and the overall balance, which is the income minus the expenses. A detailed table on the home page lists all transactions along with their respective details.
 
+![DT Money](./public/preview/main.jpeg)
+
+> DT Money's main page.
+
 ## Features
 
 - **Transaction Recording**: Log every transaction, including its name, amount, category, and price.
