@@ -4,10 +4,10 @@
 
 Ignite Timer is a productivity application designed to help users manage their time effectively while working on various tasks. The application allows users to set a task name and a timer for each task they intend to work on. With a sleek countdown feature on the main page and a comprehensive report page, users can track their activities, monitor progress, and view the status of each task—whether it's interrupted, in progress, or completed.
 
-![Ignite Timer Interface](/public/preview/main.jpg)
+![Ignite Timer Interface](./public/preview/main.jpg)
 _Main Countdown Interface of Ignite Timer_
 
-![Task Report Interface](/public/preview/report.jpg)
+![Task Report Interface](./public/preview/report.jpg)
 _Task Report Page Showing Task Status and Details_
 
 ## Features
