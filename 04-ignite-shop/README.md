@@ -1,42 +1,94 @@
-# Ignite Shop
+# Ignite Shop - E-Commerce Simulation with Stripe API Integration
 
-![Preview](src/assets/preview.png)
+## About The Project
+
+Ignite Shop is a demonstration e-commerce application with the primary goal of integrating with the Stripe API. It's a storefront that specializes in showcasing a carousel of shirt products. Users can browse through the selection and, upon clicking a product, are taken to a detailed page where they can proceed to purchase via Stripe's checkout service. The application's checkout process is designed to simulate a real shopping experience, concluding with a success page that displays the details of the fictitious purchase.
+
+![Ignite Shop](./public/preview/main.jpeg)
+
+_Preview of the main page._
+
+## Features
+
+- **Product Carousel**: Users can swipe through a selection of shirts.
+- **Stripe Checkout**: Seamless integration with Stripe for payment processing.
+- **Payment Simulation**: Utilizes credit card information for demo transactions.
+- **Success Confirmation**: A success page to confirm the mock transaction details.
+
+## Upcoming Features
+
+- **Shopping Cart**: Functionality to add items to a cart and handle bulk purchases.
+
+## Built With
+
+This project utilizes a stack of modern web development technologies:
+
+- [Next.js](https://nextjs.org/) - The React framework for production.
+- [Stripe](https://stripe.com/) - Online payment processing for internet businesses.
+- [Tailwind CSS](https://tailwindcss.com/) - A utility-first CSS framework for rapid UI development.
 
 ## Getting Started
 
-First, run the development server:
+To run Ignite Shop locally, follow these steps:
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
+### Prerequisites
+
+Ensure you have the `nodejs` installed on your machine. If not, you can download it [here](https://nodejs.org/en/download/).
+
+### Installation
+
+1. Clone the repository:
+
+```sh
+git clone https://github.com/pdro-lucas/ignite-reactjs
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+2. Navigate to the project directory:
 
-You can start editing the page by modifying `pages/index.tsx`. The page auto-updates as you edit the file.
+```sh
+cd ignite-shop/04-ignite-shop
+```
 
-[API routes](https://nextjs.org/docs/api-routes/introduction) can be accessed on [http://localhost:3000/api/hello](http://localhost:3000/api/hello). This endpoint can be edited in `pages/api/hello.ts`.
+3. Install NPM packages:
 
-The `pages/api` directory is mapped to `/api/*`. Files in this directory are treated as [API routes](https://nextjs.org/docs/api-routes/introduction) instead of React pages.
+```sh
+npm install
+```
 
-This project uses [`next/font`](https://nextjs.org/docs/basic-features/font-optimization) to automatically optimize and load Inter, a custom Google Font.
+## Usage
 
-## Learn More
+Start the development server with:
 
-To learn more about Next.js, take a look at the following resources:
+```sh
+npm run dev
+```
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+The application will be available at [http://localhost:3000](http://localhost:3000).
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js/) - your feedback and contributions are welcome!
+## Learning Objectives
 
-## Deploy on Vercel
+The key educational outcomes from developing this project include:
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+- Integrating a Next.js application with a third-party API.
+- Handling online payments and simulating checkout flows.
+- Managing application state and UI rendering based on external data.
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
+## Contributing
+
+Ignite Shop is an educational project, and contributions are welcome as part of the learning process:
+
+1. Fork the project.
+2. Create your feature branch (`git checkout -b feature/AmazingFeature`).
+3. Commit your changes (`git commit -m 'Add some AmazingFeature'`).
+4. Push to the branch (`git push origin feature/AmazingFeature`).
+5. Open a pull request.
+
+## License
+
+This project is licensed under the MIT License - see the `LICENSE` file for details.
+
+## Contact
+
+Your Name - [@pdrolucasX](https://twitter.com/pdrolucasX) - email@example.com
+
+Project Link: [https://github.com/pdro-lucas/ignite-reactjs](https://github.com/pdro-lucas/ignite-reactjs/tree/main/04-ignite-shop)
