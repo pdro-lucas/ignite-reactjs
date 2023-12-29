@@ -9,9 +9,7 @@ Ignite Feed is a simulated social media blogging platform designed for education
 
 _Screenshot of the Ignite Feed Interface_
 
-
 https://github.com/pdro-lucas/ignite-reactjs/assets/92560641/599cb486-3c97-4056-9dca-4394ee36e27c
-
 
 _Video of the Ignite Feed Interface_
 
@@ -63,11 +61,7 @@ To get a local copy up and running follow these simple steps.
 
 ### Prerequisites
 
-Make sure you have `npm` installed on your machine. If not, install it globally:
-
-```sh
-npm install npm@latest -g
-```
+Make sure you have `nodejs` installed on your machine. If not, you can download it [here](https://nodejs.org/en/download/).
 
 ### Installation
 
