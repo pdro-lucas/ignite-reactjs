@@ -1,7 +1,3 @@
-Beleza, Pedro! Vou traduzir a descrição do projeto "Ignite ReactJS Projects by Pedro Lucas" para inglês. Aqui está:
-
----
-
 # Ignite ReactJS Projects by Pedro Lucas
 
 ## About the Repository
