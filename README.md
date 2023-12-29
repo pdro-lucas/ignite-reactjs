@@ -1,27 +1,31 @@
+Beleza, Pedro! Vou traduzir a descrição do projeto "Ignite ReactJS Projects by Pedro Lucas" para inglês. Aqui está:
+
+---
+
 # Ignite ReactJS Projects by Pedro Lucas
 
-## Sobre o Repositório
+## About the Repository
 
-Este repositório contém uma coleção de projetos desenvolvidos por Pedro Lucas, focados em ReactJS. Cada projeto é uma aplicação única, demonstrando diferentes habilidades e técnicas em desenvolvimento web.
+This repository contains a collection of projects developed by Pedro Lucas, focusing on ReactJS. Each project is a unique application, showcasing different skills and techniques in web development.
 
-## Projetos
+## Projects
 
 ### 1. [Ignite Timer](https://github.com/pdro-lucas/ignite-reactjs/tree/feature/pizza-shop-web/02-ignite-timer)
-Aplicação de produtividade com um timer para gerenciamento de tarefas. Utiliza React e TypeScript.
+A productivity application with a timer for task management. Uses React and TypeScript.
 
 ### 2. [DT Money](https://github.com/pdro-lucas/ignite-reactjs/tree/feature/pizza-shop-web/03-dt-money)
-Uma aplicação de controle financeiro pessoal. Feita com React e Styled Components.
+A personal finance control application. Made with React and Styled Components.
 
 ### 3. [Ignite Shop](https://github.com/pdro-lucas/ignite-reactjs/tree/feature/pizza-shop-web/04-ignite-shop)
-Simulação de e-commerce integrada com a API Stripe. Construída com Next.js e Tailwind CSS.
+E-commerce simulation integrated with Stripe API. Built with Next.js and Tailwind CSS.
 
 ### 4. [Ignite Feed](https://github.com/pdro-lucas/ignite-reactjs/tree/feature/pizza-shop-web/ignite-feed-ts)
-Plataforma de mídia social estática, ideal para entender UI e gerenciamento de estado em React.
+A static social media blogging platform, ideal for understanding UI and state management in React.
 
 ### 5. Pizza Shop Web
-Projeto em desenvolvimento, focado em uma aplicação web para pizzaria.
+A work-in-progress project focused on a web application for a pizzeria.
 
-## Tecnologias Utilizadas
+## Technologies Used
 
 - ReactJS
 - TypeScript
@@ -29,14 +33,14 @@ Projeto em desenvolvimento, focado em uma aplicação web para pizzaria.
 - Next.js
 - Tailwind CSS
 - Vite
-- Outras bibliotecas e frameworks modernos
+- Other modern libraries and frameworks
 
-## Como Contribuir
+## How to Contribute
 
-Contribuições são sempre bem-vindas! Se quiser contribuir com algum projeto, siga estes passos:
+Contributions are always welcome! If you want to contribute to any project, follow these steps:
 
-1. Faça um fork do projeto.
-2. Crie uma branch para sua feature (`git checkout -b feature/AmazingFeature`).
-3. Faça suas alterações e commit (`git commit -m 'Add some AmazingFeature'`).
-4. Faça push para a branch (`git push origin feature/AmazingFeature`).
-5. Abra um Pull Request.
+1. Fork the project.
+2. Create a feature branch (`git checkout -b feature/AmazingFeature`).
+3. Make your changes and commit (`git commit -m 'Add some AmazingFeature'`).
+4. Push to the branch (`git push origin feature/AmazingFeature`).
+5. Open a Pull Request.
