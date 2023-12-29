@@ -8,6 +8,12 @@ Ignite Shop is a demonstration e-commerce application with the primary goal of i
 
 _Preview of the main page._
 
+
+https://github.com/pdro-lucas/ignite-reactjs/assets/92560641/12e19a4b-38f6-43b5-acae-91520ce8c27a
+
+
+_Video preview of the main page._
+
 ## Features
 
 - **Product Carousel**: Users can swipe through a selection of shirts.
