@@ -47,7 +47,7 @@ git clone https://github.com/pdro-lucas/ignite-reactjs.git
 cd ignite-reactjs/02-ignite-timer
 ```
 
-1. Install NPM packages:
+3. Install NPM packages:
 
 ```sh
 # with npm
@@ -61,7 +61,7 @@ $ npm install
 To start the application, run the following command in the project directory:
 
 ```sh
-$ npm start
+$ npm run dev
 ```
 
 This runs the app in development mode. Open [http://localhost:5173](http://localhost:5173) to view it in the browser.
