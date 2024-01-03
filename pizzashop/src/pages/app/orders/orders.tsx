@@ -1,16 +1,15 @@
-import { ArrowRight, Search, X } from 'lucide-react'
 import { Helmet } from 'react-helmet-async'
 
-import { Button } from '@/components/ui/button'
-import { Input } from '@/components/ui/input'
 import {
   Table,
   TableBody,
-  TableCell,
   TableHead,
   TableHeader,
   TableRow,
 } from '@/components/ui/table'
+
+import { OrderTableFilters } from './order-table-filters'
+import { OrderTableRow } from './order-table-row'
 
 export function Orders() {
   return (
@@ -21,12 +20,9 @@ export function Orders() {
         <h1 className="text-3xl font-bold tracking-tight">Pedidos</h1>
       </div>
 
-      <div className="space-y-6">
-        <form className="flex items-center gap-2">
-          <span className="text-sm font-semibold">Filtros</span>
-          <Input placeholder="Nome do cliente" className="h-8 w-[320px]" />
-        </form>
+      <OrderTableFilters />
 
+      <div className="space-y-6">
         <div className="rounded-md border">
           <Table>
             <TableHeader>
@@ -44,54 +40,7 @@ export function Orders() {
 
             <TableBody>
               {Array.from({ length: 10 }).map((_, i) => {
-                return (
-                  <TableRow key={i}>
-                    <TableCell>
-                      <Button variant={'outline'} size={'icon'}>
-                        <Search className="h-4 w-4" />
-                        <span className="sr-only">Detalhes do pedido</span>
-                      </Button>
-                    </TableCell>
-
-                    <TableCell>
-                      <span className="font-mono text-xs font-medium">
-                        clqx9nvja000008kx2di5eslr
-                      </span>
-                    </TableCell>
-
-                    <TableCell className="text-muted-foreground">
-                      há 15 minutos
-                    </TableCell>
-                    <TableCell className="">
-                      <div className="flex items-center gap-2">
-                        <span className="h-2 w-2 rounded-full bg-slate-400" />
-                        <span className="font-medium text-muted-foreground">
-                          Pendente
-                        </span>
-                      </div>
-                    </TableCell>
-
-                    <TableCell className="font-medium">
-                      Pedro Lucas Martins Guido
-                    </TableCell>
-
-                    <TableCell className="font-medium">R$ 149,90</TableCell>
-
-                    <TableCell>
-                      <Button variant={'outline'} size={'sm'}>
-                        <ArrowRight className="mr-2 h-4 w-4" />
-                        Aprovar
-                      </Button>
-                    </TableCell>
-
-                    <TableCell>
-                      <Button variant={'ghost'} size={'sm'}>
-                        <X className="mr-2 h-4 w-4" />
-                        Cancelar
-                      </Button>
-                    </TableCell>
-                  </TableRow>
-                )
+                return <OrderTableRow key={i} />
               })}
             </TableBody>
           </Table>
