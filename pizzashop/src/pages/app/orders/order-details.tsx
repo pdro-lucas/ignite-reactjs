@@ -35,6 +35,25 @@ export function OrderDetails() {
                 Pedro Lucas Martins Guido
               </TableCell>
             </TableRow>
+
+            <TableRow>
+              <TableCell className="text-muted-foreground">Telefone</TableCell>
+              <TableCell className="flex justify-end">31999999999</TableCell>
+            </TableRow>
+
+            <TableRow>
+              <TableCell className="text-muted-foreground">E-mail</TableCell>
+              <TableCell className="flex justify-end">
+                pedrolucas@contato.com.br
+              </TableCell>
+            </TableRow>
+
+            <TableRow>
+              <TableCell className="text-muted-foreground">
+                Realizado há
+              </TableCell>
+              <TableCell className="flex justify-end">há 3 minutos</TableCell>
+            </TableRow>
           </TableBody>
         </Table>
       </div>
