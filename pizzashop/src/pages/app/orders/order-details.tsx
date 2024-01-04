@@ -8,6 +8,7 @@ import {
   Table,
   TableBody,
   TableCell,
+  TableFooter,
   TableHead,
   TableHeader,
   TableRow,
@@ -81,7 +82,22 @@ export function OrderDetails() {
               <TableCell className="text-right">R$ 69,90</TableCell>
               <TableCell className="text-right">R$ 139,80</TableCell>
             </TableRow>
+            <TableRow>
+              <TableCell>Pizza Mussarela Familia</TableCell>
+              <TableCell className="text-right">2</TableCell>
+              <TableCell className="text-right">R$ 59,90</TableCell>
+              <TableCell className="text-right">R$ 119,80</TableCell>
+            </TableRow>
           </TableBody>
+
+          <TableFooter>
+            <TableRow>
+              <TableCell colSpan={3}>Total do pedido</TableCell>
+              <TableCell className="text-right font-medium">
+                R$ 259,60
+              </TableCell>
+            </TableRow>
+          </TableFooter>
         </Table>
       </div>
     </DialogContent>
