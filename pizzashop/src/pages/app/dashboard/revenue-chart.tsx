@@ -83,7 +83,7 @@ export function RevenueChart() {
               type="linear"
               dataKey="revenue"
               strokeWidth={2}
-              stroke={colors.orange['500']}
+              stroke={colors.violet['500']}
             />
           </LineChart>
         </ResponsiveContainer>
