@@ -1,11 +1,11 @@
 import { api } from '@/lib/axios'
 
-interface getManagedRestaurantResponse {
+export interface getManagedRestaurantResponse {
   id: string
   name: string
   createdAt: Date | null
   updatedAt: Date | null
-  description: string
+  description: string | null
   managerId: string | null
 }
 
