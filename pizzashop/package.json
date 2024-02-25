@@ -8,7 +8,8 @@
     "build": "tsc && vite build",
     "preview": "vite preview",
     "test": "vitest",
-    "lint": "eslint . --ext .ts,.tsx"
+    "lint": "eslint . --ext .ts,.tsx",
+    "dev:test": "vite --port 5089 --mode test"
   },
   "dependencies": {
     "@hookform/resolvers": "^3.3.3",
@@ -55,6 +56,7 @@
     "eslint": "^8.56.0",
     "eslint-plugin-simple-import-sort": "^10.0.0",
     "happy-dom": "^13.4.1",
+    "msw": "^2.2.1",
     "postcss": "^8.4.32",
     "prettier": "^3.1.1",
     "prettier-plugin-tailwindcss": "^0.5.10",
