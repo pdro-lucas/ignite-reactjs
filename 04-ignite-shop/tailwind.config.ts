@@ -12,9 +12,9 @@ const config: Config = {
       backgroundImage: {
         'product-gradient': 'linear-gradient(180deg, #1EA483 0%, #7465D4 100%)',
         'slider-arrow-left-bg':
-          'linear-gradient(270deg, rgba(18, 18, 20, 0.00) 0%, rgba(18, 18, 20, 0.75) 100%)',
+          'linear-gradient(270deg, rgba(9, 9, 11, 0.00) 0%, rgba(9, 9, 11, 1) 100%)',
         'slider-arrow-right-bg':
-          'linear-gradient(90deg, rgba(18, 18, 20, 0.00) 0%, rgba(18, 18, 20, 0.75) 100%)',
+          'linear-gradient(90deg, rgba(9, 9, 11, 0.00) 0%, rgba(9, 9, 11, 1) 100%)',
       },
       fontFamily: {
         sans: ['var(--font-roboto)'],
