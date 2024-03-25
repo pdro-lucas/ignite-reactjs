@@ -4,9 +4,11 @@ import { GetStaticPaths, GetStaticProps } from 'next'
 import Head from 'next/head'
 import Image from 'next/image'
 import { useRouter } from 'next/router'
-import { useState } from 'react'
+import { useContext, useState } from 'react'
+import { toast } from 'react-toastify'
 import Stripe from 'stripe'
 
+import { ShoppingCartContext } from '@/contexts/shoppingCart'
 import { stripe } from '@/lib/stripe'
 import { formatCurrency } from '@/utils/formatCurrency'
 
@@ -28,6 +30,7 @@ const Page: NextPageWithLayout<ProductProps> = ({ product }) => {
   const [isCreatingCheckoutSession, setIsCreatingCheckoutSession] =
     useState(false)
   const { isFallback, push } = useRouter()
+  const { addProduct } = useContext(ShoppingCartContext)
 
   if (isFallback) {
     return <p>Carregando...</p>
@@ -37,7 +40,12 @@ const Page: NextPageWithLayout<ProductProps> = ({ product }) => {
     try {
       setIsCreatingCheckoutSession(true)
       const response = await axios.post('/api/checkout', {
-        priceId: product.defaultPriceId,
+        products: [
+          {
+            quantity: 1,
+            ...product,
+          },
+        ],
       })
 
       const { checkoutUrl } = response.data
@@ -79,7 +87,7 @@ const Page: NextPageWithLayout<ProductProps> = ({ product }) => {
           </div>
 
           <span className="block mt-4 text-2xl text-emerald-500">
-            {product.price}
+            {formatCurrency(Number(product.price) / 100)}
           </span>
           <p className="mt-10 text-lg/7 text-zinc-400">{product.description}</p>
           <button
@@ -97,6 +105,15 @@ const Page: NextPageWithLayout<ProductProps> = ({ product }) => {
                   : 'opacity-100'
               } animate-spin`}
             />
+          </button>
+          <button
+            className="flex items-center justify-center gap-4 p-5 mt-4 text-lg font-bold text-white transition-colors border-none rounded-lg cursor-pointer bg-zinc-800 hover:bg-zinc-700 disabled:bg-zinc-900/50 disabled:cursor-not-allowed"
+            onClick={() => {
+              addProduct(product)
+              toast.success('Produto adicionado ao carrinho')
+            }}
+          >
+            <span className="flex-1 ml-6">Adicionar ao carrinho</span>
           </button>
         </div>
       </div>
@@ -146,7 +163,7 @@ export const getStaticProps: GetStaticProps<any, { id: string }> = async ({
         description: product.description,
         imageUrl: product.images[0],
         defaultPriceId: price.id,
-        price: formatCurrency(price.unit_amount ? price.unit_amount / 100 : 0),
+        price: price.unit_amount,
       },
     },
     revalidate: 60 * 60 * 1, // 1 hour

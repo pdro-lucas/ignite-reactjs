@@ -11,13 +11,10 @@ import Layout from './layout'
 
 interface SuccessProps {
   customerName: string
-  product: {
-    name: string
-    image: string
-  }
+  products: Stripe.Product[]
 }
 
-const Page: NextPageWithLayout<SuccessProps> = ({ customerName, product }) => {
+const Page: NextPageWithLayout<SuccessProps> = ({ customerName, products }) => {
   return (
     <>
       <Head>
@@ -28,13 +25,26 @@ const Page: NextPageWithLayout<SuccessProps> = ({ customerName, product }) => {
       <div className="max-w-[1180px] mx-auto flex flex-col items-center justify-center h-[656px]">
         <h1 className="text-4xl font-bold text-zinc-300">Compra efetuada</h1>
 
-        <div className="w-full max-w-[130px] h-36 rounded-lg p-1 flex items-center justify-center bg-product-gradient mt-16">
-          <Image src={product.image} width={120} height={110} alt="" />
+        <div className="flex justify-center items-center w-full -space-x-12">
+          {products.map((product) => (
+            <div
+              key={product.id}
+              className="w-36 h-36 rounded-full p-1 flex items-center justify-center bg-product-gradient mt-16 shadow-[0px_0px_60px_rgba(0,0,0,0.80)]"
+            >
+              <Image
+                src={product.images[0]}
+                width={120}
+                height={110}
+                alt={product.description as string}
+              />
+            </div>
+          ))}
         </div>
 
-        <p className="max-w-xl mt-8 text-2xl text-center text-zinc-200">
-          Uhuul <strong>{customerName}</strong>, sua{' '}
-          <strong>{product.name}</strong> está a caminho da sua casa!
+        <p className="max-w-xl mt-8 text-2xl text-center text-zinc-400">
+          Uhuul <strong className="text-zinc-300">{customerName}</strong>, sua
+          compra de <strong className="text-zinc-300">{products.length}</strong>{' '}
+          camisas já está a caminho de sua casa.
         </p>
 
         <Link
@@ -71,15 +81,17 @@ export const getServerSideProps: GetServerSideProps = async ({ query }) => {
   })
 
   const customerName = session.customer_details?.name
-  const product = session.line_items?.data[0].price?.product as Stripe.Product
+  // const product = session.line_items?.data[0].price?.product as Stripe.Product
+  const lineItems = session.line_items?.data as Stripe.LineItem[]
+
+  const products = lineItems.map((lineItem) => {
+    return lineItem.price?.product as Stripe.Product
+  })
 
   return {
     props: {
       customerName,
-      product: {
-        name: product.name,
-        image: product.images[0],
-      },
+      products,
     },
   }
 }

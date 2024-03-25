@@ -3,6 +3,8 @@ import { ShoppingBag } from 'lucide-react'
 import Image from 'next/image'
 import Link from 'next/link'
 import { useContext, useState } from 'react'
+import { toast } from 'react-toastify'
+import { zinc } from 'tailwindcss/colors'
 
 import { ShoppingCartContext } from '@/contexts/shoppingCart'
 import { Product } from '@/pages'
@@ -31,7 +33,7 @@ export function Slider({ products }: SliderProps) {
     dragEnded: () => setIsDragging(false),
   })
 
-  const { addProduct } = useContext(ShoppingCartContext)
+  const { addProduct, removeProduct } = useContext(ShoppingCartContext)
 
   return (
     <>
@@ -85,9 +87,21 @@ export function Slider({ products }: SliderProps) {
                       {formatCurrency(Number(product.price) / 100)}
                     </span>
                   </div>
-
                   <button
-                    onClick={() => addProduct(product)}
+                    onClick={() => {
+                      addProduct({
+                        ...product,
+                        id: product.id + Math.random(),
+                      })
+                      toast.success('Product added to cart', {
+                        style: {
+                          background: zinc[900],
+                        },
+                        icon: () => (
+                          <ShoppingBag size={24} className="text-emerald-500" />
+                        ),
+                      })
+                    }}
                     className="p-4 transition-colors rounded-md bg-emerald-600 hover:bg-emerald-700"
                   >
                     <ShoppingBag size={24} />
