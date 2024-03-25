@@ -22,22 +22,14 @@ const Page: NextPageWithLayout<SuccessProps> = ({ customerName, product }) => {
     <>
       <Head>
         <title>Compra efetuada | IgShop</title>
-        <meta
-          name="robots"
-          content="noindex"
-        />
+        <meta name="robots" content="noindex" />
       </Head>
 
       <div className="max-w-[1180px] mx-auto flex flex-col items-center justify-center h-[656px]">
         <h1 className="text-4xl font-bold text-zinc-300">Compra efetuada</h1>
 
         <div className="w-full max-w-[130px] h-36 rounded-lg p-1 flex items-center justify-center bg-product-gradient mt-16">
-          <Image
-            src={product.image}
-            width={120}
-            height={110}
-            alt=""
-          />
+          <Image src={product.image} width={120} height={110} alt="" />
         </div>
 
         <p className="max-w-xl mt-8 text-2xl text-center text-zinc-200">

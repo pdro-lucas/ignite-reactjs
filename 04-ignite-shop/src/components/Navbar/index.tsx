@@ -1,9 +1,12 @@
+import * as Dialog from '@radix-ui/react-dialog'
 import { ShoppingBag, X } from 'lucide-react'
 import Image from 'next/image'
 import Link from 'next/link'
+import { useContext } from 'react'
 
 import Logo from '@/assets/logo.svg'
-import * as Dialog from '@radix-ui/react-dialog'
+import { ShoppingCartContext } from '@/contexts/shoppingCart'
+import { formatCurrency } from '@/utils/formatCurrency'
 
 import { Badge } from '../Badge'
 
@@ -12,7 +15,8 @@ interface NavbarProps {
 }
 
 export function Navbar({ isAddToCartButtonVisible = true }: NavbarProps) {
-  const totalItemsInCart = 1
+  const { products } = useContext(ShoppingCartContext)
+  const totalItemsInCart = products.length
 
   return (
     <header
@@ -21,12 +25,7 @@ export function Navbar({ isAddToCartButtonVisible = true }: NavbarProps) {
       }`}
     >
       <Link href="/">
-        <Image
-          src={Logo}
-          alt=""
-          width={130}
-          height={52}
-        />
+        <Image src={Logo} alt="" width={130} height={52} />
       </Link>
 
       <Dialog.Root>
@@ -48,22 +47,38 @@ export function Navbar({ isAddToCartButtonVisible = true }: NavbarProps) {
             <Dialog.Title className="text-xl">Sacola de compras</Dialog.Title>
             <div className="flex flex-col justify-between h-[90%] mt-8">
               <div className="space-y-6 h-[580px] scrollbar-thumb-zinc-800 scrollbar-thumb-rounded-full scrollbar-thin overflow-y-auto">
-                <div className="flex gap-5">
-                  <div className="w-24 h-24 rounded-md bg-product-gradient"></div>
-                  <div className="space-y-2">
-                    <p className="text-lg text-zinc-200">
-                      Camiseta Beyond the Limits
-                    </p>
-                    <p className="text-lg font-bold">R$ 79,90</p>
-                    <button className="block text-emerald-600">Remover</button>
+                {products.map((product) => (
+                  <div key={product.id} className="flex gap-5">
+                    <div className="w-24 h-24 rounded-md bg-product-gradient">
+                      <Image
+                        src={product.imageUrl}
+                        alt=""
+                        width={96}
+                        height={96}
+                        className="object-cover"
+                      />
+                    </div>
+                    <div className="space-y-2">
+                      <p className="text-lg text-zinc-200">{product.name}</p>
+                      <p className="text-lg font-bold">
+                        {formatCurrency(Number(product.price) / 100)}
+                      </p>
+                      <button className="block text-emerald-600">
+                        Remover
+                      </button>
+                    </div>
                   </div>
-                </div>
+                ))}
               </div>
 
               <div className="">
                 <div className="flex justify-between text-zinc-400">
                   <span>Quantidade</span>
-                  <span>3 Items</span>
+                  <span>
+                    {totalItemsInCart > 1
+                      ? `${totalItemsInCart} itens`
+                      : `${totalItemsInCart} item`}
+                  </span>
                 </div>
                 <div className="flex justify-between text-lg font-bold">
                   <span>Valor total</span>

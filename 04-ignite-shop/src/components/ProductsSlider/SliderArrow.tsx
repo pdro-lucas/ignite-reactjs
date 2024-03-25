@@ -20,16 +20,9 @@ export function SliderArrow({
   } cursor-pointer data-[disabled=true]:text-zinc-400 data-[disabled=true]:cursor-not-allowed data-[disabled=true]:opacity-50 data-[disabled=true]:hover:opacity-1`
 
   return (
-    <div
-      className={className}
-      onClick={onClick}
-      data-disabled={disabled}
-    >
+    <div className={className} onClick={onClick} data-disabled={disabled}>
       <span>
-        <Chevron
-          size={48}
-          strokeWidth={1}
-        />
+        <Chevron size={48} strokeWidth={1} />
       </span>
     </div>
   )
