@@ -1,12 +1,15 @@
-import { stripe } from '@/lib/stripe'
 import axios from 'axios'
-import { Loader2 } from 'lucide-react'
+import { ChevronLeft, Loader2 } from 'lucide-react'
 import { GetStaticPaths, GetStaticProps } from 'next'
 import Head from 'next/head'
 import Image from 'next/image'
 import { useRouter } from 'next/router'
 import { useState } from 'react'
 import Stripe from 'stripe'
+
+import { stripe } from '@/lib/stripe'
+import { formatCurrency } from '@/utils/formatCurrency'
+
 import { NextPageWithLayout } from '../_app'
 import Layout from '../layout'
 
@@ -24,7 +27,7 @@ interface ProductProps {
 const Page: NextPageWithLayout<ProductProps> = ({ product }) => {
   const [isCreatingCheckoutSession, setIsCreatingCheckoutSession] =
     useState(false)
-  const { isFallback } = useRouter()
+  const { isFallback, push } = useRouter()
 
   if (isFallback) {
     return <p>Carregando...</p>
@@ -62,8 +65,19 @@ const Page: NextPageWithLayout<ProductProps> = ({ product }) => {
             height={520}
           />
         </div>
+
         <div className="flex flex-col">
-          <h1 className="text-2xl font-bold text-zinc-300">{product.name}</h1>
+          <div className="flex gap-2 items-center">
+            <button
+              onClick={() => push('/')}
+              className="bg-zinc-900 p-2 rounded-md hover:bg-zinc-800 focus:outline-none focus-visible:ring-2 focus-visible:ring-offset-2 focus-visible:ring-emerald-500 focus-visible:ring-opacity-75 transition-colors"
+            >
+              <ChevronLeft size={32} />
+              <span className="sr-only">Voltar</span>
+            </button>
+            <h1 className="text-2xl font-bold text-zinc-300">{product.name}</h1>
+          </div>
+
           <span className="block mt-4 text-2xl text-emerald-500">
             {product.price}
           </span>
@@ -132,10 +146,7 @@ export const getStaticProps: GetStaticProps<any, { id: string }> = async ({
         description: product.description,
         imageUrl: product.images[0],
         defaultPriceId: price.id,
-        price: new Intl.NumberFormat('pt-BR', {
-          style: 'currency',
-          currency: 'BRL',
-        }).format(price.unit_amount ? price.unit_amount / 100 : 0),
+        price: formatCurrency(price.unit_amount ? price.unit_amount / 100 : 0),
       },
     },
     revalidate: 60 * 60 * 1, // 1 hour
