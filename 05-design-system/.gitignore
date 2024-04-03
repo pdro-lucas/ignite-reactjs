@@ -40,3 +40,4 @@ coverage/
 # Ignorar arquivos de configuração do editor
 .editorconfig
 .eslintcache
+.turbo
