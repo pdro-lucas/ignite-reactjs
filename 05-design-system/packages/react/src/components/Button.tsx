@@ -21,6 +21,7 @@ export const Button = styled('button', {
 
   '&:disabled': {
     cursor: 'not-allowed',
+    color: '$gray600',
   },
 
   svg: {
