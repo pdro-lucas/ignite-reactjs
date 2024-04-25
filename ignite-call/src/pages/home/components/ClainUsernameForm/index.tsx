@@ -10,6 +10,12 @@ export function ClainUsernameForm() {
         prefix="ignite.com/"
         placeholder="Seu usuário"
         crossOrigin=""
+        css={{
+          overflow: 'hidden',
+          textOverflow: 'ellipsis',
+          whiteSpace: 'nowrap',
+        }}
+        {...register('username')}
       />
       <Button size="sm" type="submit">
         Reservar usuário
