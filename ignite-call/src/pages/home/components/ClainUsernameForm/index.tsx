@@ -1,5 +1,6 @@
 import { zodResolver } from '@hookform/resolvers/zod'
 import { Button, Text, TextInput } from '@ignite-ui/react'
+import { useRouter } from 'next/router'
 import { ArrowRight } from 'phosphor-react'
 import { useForm } from 'react-hook-form'
 import { z } from 'zod'
@@ -18,16 +19,20 @@ const clainUsernameFormSchema = z.object({
 type ClainUsernameFormData = z.infer<typeof clainUsernameFormSchema>
 
 export function ClainUsernameForm() {
+  const router = useRouter()
+
   const {
     register,
     handleSubmit,
-    formState: { errors },
+    formState: { errors, isSubmitting },
   } = useForm<ClainUsernameFormData>({
     resolver: zodResolver(clainUsernameFormSchema),
   })
 
   async function handleClainUsername(data: ClainUsernameFormData) {
-    console.log(data)
+    const { username } = data
+
+    await router.push(`/register?username=${username}`)
   }
 
   return (
@@ -47,11 +52,12 @@ export function ClainUsernameForm() {
           }}
           {...register('username')}
         />
-        <Button size="sm" type="submit">
+        <Button size="sm" type="submit" disabled={isSubmitting}>
           Reservar usuário
           <ArrowRight />
         </Button>
       </Form>
+
       <FormAnotation>
         <Text size="sm">
           {errors.username
