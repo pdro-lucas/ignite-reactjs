@@ -32,6 +32,8 @@ export function ClainUsernameForm() {
   async function handleClainUsername(data: ClainUsernameFormData) {
     const { username } = data
 
+    // TODO: Check if username is available before redirecting
+
     await router.push(`/register?username=${username}`)
   }
 
