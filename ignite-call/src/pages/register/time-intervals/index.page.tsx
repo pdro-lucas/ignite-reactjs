@@ -22,7 +22,7 @@ import { getWeekDays } from '@/utils/get-week-days'
 import { zodResolver } from '@hookform/resolvers/zod'
 import { convertTimeStringToMinutes } from '@/utils/convert-time-string-to-minutes'
 
-const timeInterfavlsFormSchema = z.object({
+const timeIntervalsFormSchema = z.object({
   intervals: z
     .array(
       z.object({
@@ -60,9 +60,9 @@ const timeInterfavlsFormSchema = z.object({
     ),
 })
 
-type TimeIntervalsFormInput = z.input<typeof timeInterfavlsFormSchema>
+type TimeIntervalsFormInput = z.input<typeof timeIntervalsFormSchema>
 
-type TimeIntervalsFormOutput = z.output<typeof timeInterfavlsFormSchema>
+type TimeIntervalsFormOutput = z.output<typeof timeIntervalsFormSchema>
 
 export default function TimeIntervals() {
   const {
@@ -72,7 +72,7 @@ export default function TimeIntervals() {
     watch,
     formState: { isSubmitting, errors },
   } = useForm<TimeIntervalsFormInput>({
-    resolver: zodResolver(timeInterfavlsFormSchema),
+    resolver: zodResolver(timeIntervalsFormSchema),
     defaultValues: {
       intervals: [
         { weekDay: 0, enabled: false, startTime: '08:00', endTime: '18:00' },
