@@ -15,6 +15,8 @@ import { FormAnnotation, ProfileBox } from './styles'
 import { buildNextAuthOptions } from '@/pages/api/auth/[...nextauth].api'
 import { getServerSession } from 'next-auth'
 import { useSession } from 'next-auth/react'
+import { api } from '@/lib/axios'
+import { useRouter } from 'next/router'
 
 const updateProfileSchema = z.object({
   bio: z.string(),
@@ -24,6 +26,7 @@ type updateProfileData = z.infer<typeof updateProfileSchema>
 
 export default function UpdateProfile() {
   const session = useSession()
+  const router = useRouter()
 
   const {
     register,
@@ -33,7 +36,13 @@ export default function UpdateProfile() {
     resolver: zodResolver(updateProfileSchema),
   })
 
-  async function handleUpdateProfile(data: updateProfileData) {}
+  async function handleUpdateProfile(data: updateProfileData) {
+    await api.put('/users/profile', {
+      bio: data.bio,
+    })
+
+    await router.push(`/schedule/${session.data?.user.username}`)
+  }
 
   return (
     <Container>
