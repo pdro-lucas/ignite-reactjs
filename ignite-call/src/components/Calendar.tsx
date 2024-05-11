@@ -3,6 +3,7 @@ import {
   CalendarActions,
   CalendarBody,
   CalendarContainer,
+  CalendarDay,
   CalendarHeader,
   CalendarTitle,
 } from './styles'
@@ -17,16 +18,16 @@ export function Calendar() {
         <CalendarTitle>
           Maio <span>2024</span>
         </CalendarTitle>
-      </CalendarHeader>
 
-      <CalendarActions>
-        <button>
-          <CaretLeft />
-        </button>
-        <button>
-          <CaretRight />
-        </button>
-      </CalendarActions>
+        <CalendarActions>
+          <button>
+            <CaretLeft />
+          </button>
+          <button>
+            <CaretRight />
+          </button>
+        </CalendarActions>
+      </CalendarHeader>
 
       <CalendarBody>
         <thead>
@@ -41,9 +42,15 @@ export function Calendar() {
             <td></td>
             <td></td>
             <td></td>
-            <td></td>
-            <td></td>
-            <td></td>
+            <td>
+              <CalendarDay disabled>1</CalendarDay>
+            </td>
+            <td>
+              <CalendarDay>2</CalendarDay>
+            </td>
+            <td>
+              <CalendarDay>3</CalendarDay>
+            </td>
           </tr>
         </tbody>
       </CalendarBody>
