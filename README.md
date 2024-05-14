@@ -1,5 +1,7 @@
 # Ignite ReactJS Projects by Pedro Lucas
 
+Dedicated time: ![](https://wakatime.com/badge/user/a727d28f-ccf9-4fe9-9148-70d257f76fd2/project/d01f52b0-2a44-484c-86a0-c5d75cf6db15.svg)
+
 ## About the Repository
 
 This repository contains a collection of projects developed by Pedro Lucas, focusing on ReactJS. Each project is a unique application, showcasing different skills and techniques in web development.
