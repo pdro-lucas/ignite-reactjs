@@ -38,7 +38,7 @@ export default async function handler(
 
   if (schedulingDate.isBefore(new Date())) {
     return res.status(400).json({
-      message: 'Date is in the past',
+      message: 'Date is in the past.',
     })
   }
 
@@ -51,7 +51,7 @@ export default async function handler(
 
   if (conflictingScheduling) {
     return res.status(400).json({
-      message: 'There is another scheduling in the same time.',
+      message: 'There is another scheduling at in the same time.',
     })
   }
 
