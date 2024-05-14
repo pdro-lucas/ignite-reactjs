@@ -3,10 +3,16 @@ import Image from 'next/image'
 import previewImage from '../../assets/calendar.png'
 import { ClainUsernameForm } from './components/ClainUsernameForm'
 import { Container, Hero, Preview } from './style'
+import { NextSeo } from 'next-seo'
 
 export default function Home() {
   return (
     <>
+      <NextSeo
+        title="Descomplique sua agenda | Ignite Call"
+        description="Conecte seu calendário e permita que as pessoas marquem agendamentos no seu tempo livre."
+      />
+
       <Container>
         <Hero>
           <Heading size="4xl">Agendamento descomplicado</Heading>
